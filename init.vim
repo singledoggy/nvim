@@ -18,6 +18,9 @@ filetype off
 filetype plugin on
 filetype plugin indent on
 syntax on
+if has("autocmd")                                                          
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif                                                        
+endif
 
 noremap <silent> k gk
 noremap <silent> j gj
@@ -107,7 +110,6 @@ let g:auto_save = 1
 
 " =====enable ncm2 for all buffers=====
 autocmd BufEnter * call ncm2#enable_for_buffer()
-" IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=menu,noinsert,noselect
 set shortmess+=c
 " 延迟弹窗,这样提示更加流畅
@@ -160,7 +162,6 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gs <Plug>(openbrowser-smart-search)
 vmap gs <Plug>(openbrowser-smart-search)
 let g:mkdp_auto_start = 1
-let g:mkdp_browser = 'safari'
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
 let g:mkdp_command_for_global = 0
