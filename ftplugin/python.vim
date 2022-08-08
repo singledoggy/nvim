@@ -17,7 +17,7 @@ nnoremap <Leader>s :SlimeSend1 ipython --matplotlib<CR>
 nnoremap <Leader>r :IPythonCellRunTime<CR>
 
 " map <Leader>C to execute the current cell and jump to the next cell
-nnoremap <Leader>c :IPythonCellExecuteCellVerboseJump<CR>
+nnoremap <Leader>c :IPythonCellExecuteCellJump<CR>
 
 " map <Leader>Q to restart ipython
 nnoremap <Leader>Q :IPythonCellRestart<CR>

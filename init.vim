@@ -56,7 +56,6 @@ let g:python3_host_prog='/Users/sam/opt/anaconda3/bin/python3'
             exec "!firefox %.html &"
         endif
 	endfunc
-noremap <leader>b oimport ipdb; ipdb.set_trace()<esc>
 
 inoremap vv <esc>
 cnoremap vv <esc>
