@@ -1,3 +1,23 @@
+""""""""""""
+"  pymode  "
+""""""""""""
+let g:pymode_lint_ignore = ["E501","E402","W0611","W0404"]
+let g:pymode_lint_on_write = 1
+let g:pymode_rope = 1
+let g:pymode_run = 0
+let g:pymode_rope_goto_definition_bind = '<C-c>g'
+let g:pymode_rope_goto_definition_cmd = 'vnew'
+let g:pymode_rope_show_doc_bind = '<C-c>d'
+
+function! Pyclean()
+	echo "Clean python import"
+	silent exec '!isort  %:p'
+	silent exec '!autoflake --remove-all-unused-imports  -i %:p'
+endfunc
+
+command! Pyclean call Pyclean()
+nmap <leader>p :PymodeLintAuto<cr>
+
 """""""""""""
 "  ipython  "
 """""""""""""
@@ -31,22 +51,4 @@ nnoremap ]c :IPythonCellNextCell<CR>
 noremap <leader>o  :IPythonCellInsertBelow<CR>o
 let g:ipython_cell_tag = ['# %%', '#%%', '# <codecell>','# In[']
 
-""""""""""""
-"  pymode  "
-""""""""""""
-let g:pymode_lint_ignore = ["E501","E402","W0611","W0404"]
-let g:pymode_lint_on_write = 1
-let g:pymode_rope = 1
 
-let g:pymode_rope_goto_definition_bind = '<C-c>g'
-let g:pymode_rope_goto_definition_cmd = 'vnew'
-let g:pymode_rope_show_doc_bind = '<C-c>d'
-
-function! Pyclean()
-	echo "Clean python import"
-	silent exec '!isort  %:p'
-	silent exec '!autoflake --remove-all-unused-imports  -i %:p'
-endfunc
-
-command! Pyclean call Pyclean()
-nmap <leader>p :PymodeLintAuto<cr>
