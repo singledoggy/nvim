@@ -82,6 +82,8 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'kien/ctrlp.vim'
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'tpope/vim-surround'
 call plug#end()
 nmap ,v :nerdtreefind<cr>
 nmap ,g :NERDTreeToggle<cr>
@@ -224,8 +226,8 @@ syntax enable
 
 let g:tex_flavor = "latex"
 let g:vimtex_view_method='skim'
-let g:vimtex_view_skim_sync = 1 
-let g:vimtex_view_skim_activate = 1 
+let g:vimtex_view_skim_activate=1
+let g:vimtex_view_skim_reading_bar=1
 "let g:vimtex_view_skim_sync = 1
 "
 set conceallevel=0
@@ -247,4 +249,3 @@ endfunction
 " Mappings to open multiple lines and enter insert mode.
 nnoremap <Leader>o :<C-u>call OpenLines(v:count, 0)<CR>i
 nnoremap <Leader>O :<C-u>call OpenLines(v:count, -1)<CR>i
-
