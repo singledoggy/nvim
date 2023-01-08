@@ -84,8 +84,9 @@ Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-surround'
+Plug 'jlanzarotta/bufexplorer'
 call plug#end()
-nmap ,v :nerdtreefind<cr>
+nmap ,v :NERDTreeFind<cr>
 nmap ,g :NERDTreeToggle<cr>
 "------------------------------------------------------------------------------
 " slime configuration 
@@ -227,11 +228,24 @@ syntax enable
 let g:tex_flavor = "latex"
 let g:vimtex_view_method='skim'
 let g:vimtex_view_skim_activate=1
-let g:vimtex_view_skim_reading_bar=1
+"let g:vimtex_view_skim_reading_bar=1
 "let g:vimtex_view_skim_sync = 1
 "
-set conceallevel=0
 let g:vimtex_quickfix_mode=0
+"set conceallevel=2
+
+let g:tex_fold_enabled = 0
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_manual=1
+let g:vimtex_fold_types = {
+	\ 'preamble' : {'enabled': 1},
+	\ 'sections': {'enabled' : 0},
+	\ 'comments':  {'enabled': 1},
+	\ 'envs' : {
+	\	'whitelist': ['enumerate','itemize','figure','table'],
+	\ },
+\ }
+
 "vimtex
 " Open multiple lines (insert empty lines) before or after current line,
 " and position cursor in the new space, with at least one blank line
@@ -249,3 +263,4 @@ endfunction
 " Mappings to open multiple lines and enter insert mode.
 nnoremap <Leader>o :<C-u>call OpenLines(v:count, 0)<CR>i
 nnoremap <Leader>O :<C-u>call OpenLines(v:count, -1)<CR>i
+command! -nargs=0 PDF source ~/.vim/pack/pdf.vim
