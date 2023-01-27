@@ -79,12 +79,11 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-Plug 'kien/ctrlp.vim'
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-surround'
-Plug 'jlanzarotta/bufexplorer'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 call plug#end()
 nmap ,v :NERDTreeFind<cr>
 nmap ,g :NERDTreeToggle<cr>
@@ -96,12 +95,6 @@ let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_python_ipython = 1
 let g:slime_dont_ask_default = 1
-
-"=========ctrlp====
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'a'
-"=========ctrlp====
 
 
 
@@ -163,7 +156,7 @@ let g:vim_markdown_math = 1
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gs <Plug>(openbrowser-smart-search)
 vmap gs <Plug>(openbrowser-smart-search)
-let g:mkdp_auto_start = 1
+let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
 let g:mkdp_command_for_global = 0
@@ -189,10 +182,9 @@ let g:mkdp_page_title = '「${name}」'
 """""""""""""""""
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
+nmap <leader>s <Plug>(easymotion-overwin-f2)
+nmap <leader>s <Plug>(easymotion-overwin-f2)
 " Move to word
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
@@ -222,7 +214,7 @@ let g:UltiSnipsEditSplit="vertical"
 "====snips config===
 
 
-" Vimtex 
+"====Vimtex ===
 syntax enable
 
 let g:tex_flavor = "latex"
@@ -264,3 +256,35 @@ endfunction
 nnoremap <Leader>o :<C-u>call OpenLines(v:count, 0)<CR>i
 nnoremap <Leader>O :<C-u>call OpenLines(v:count, -1)<CR>i
 command! -nargs=0 PDF source ~/.vim/pack/pdf.vim
+
+"====Vimtex ===
+
+"""""""""""""
+"  leaderf  "
+"""""""""""""
+" don't show the help in normal mode
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" popup mode
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
+let g:Lf_ShortcutF = "<c-p>"
+noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" search visually selected text literally
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
+
+"""""""""""""
+"  leaderf  "
+"""""""""""""

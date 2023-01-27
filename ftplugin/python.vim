@@ -40,8 +40,11 @@ nnoremap <Leader>r :IPythonCellRunTime<CR>
 nnoremap <Leader>c :IPythonCellExecuteCellJump<CR>
 
 " map <Leader>Q to restart ipython
-nnoremap <Leader>Q :IPythonCellRestart<CR>
 
+
+let g:ipython_cell_shell_prev_cmd = '<C-p>'
+
+nnoremap <Leader>Q :IPythonCellRestart<CR>
 " map [c and ]c to jump to the previous and next cell header
 nnoremap [c :IPythonCellPrevCell<CR>
 nnoremap ]c :IPythonCellNextCell<CR>
