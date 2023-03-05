@@ -53,5 +53,3 @@ nnoremap ]c :IPythonCellNextCell<CR>
 "
 noremap <leader>o  :IPythonCellInsertBelow<CR>o
 let g:ipython_cell_tag = ['# %%', '#%%', '# <codecell>','# In[']
-
-

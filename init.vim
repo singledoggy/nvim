@@ -28,7 +28,7 @@ noremap <silent> gj j
 noremap <silent> gk k
 
 
-let g:python3_host_prog='/Users/sam/opt/anaconda3/bin/python3'
+let g:python3_host_prog='/Users/sam/opt/anaconda3/envs/metro/bin/python3'
 """"""""""""""""""""""
     "Quickly Run
     """"""""""""""""""""""
@@ -108,11 +108,15 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=menu,noinsert,noselect
 set shortmess+=c
 " 延迟弹窗,这样提示更加流畅
-let ncm2#popup_delay = 5
+let ncm2#popup_delay = 3
 "输入几个字母开始提醒:[[最小优先级,最小长度]]
 let g:ncm2_jedi#python_version = 3
 "模糊匹配模式,详情请输入:help ncm2查看相关文档
 let g:ncm2#matcher = 'substrfuzzy'
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 "===============ncm2====
 
@@ -279,7 +283,6 @@ noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 " search visually selected text literally
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
