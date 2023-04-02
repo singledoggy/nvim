@@ -83,6 +83,7 @@ Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-surround'
+Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 call plug#end()
 nmap ,v :NERDTreeFind<cr>
@@ -96,6 +97,11 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_python_ipython = 1
 let g:slime_dont_ask_default = 1
 
+"""""""""""""
+"  gruvbox  "
+"""""""""""""
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
 
 
 "=========auto save=====
@@ -221,12 +227,14 @@ let g:UltiSnipsEditSplit="vertical"
 "====Vimtex ===
 syntax enable
 
+let g:vimtex_compiler_method = 'latexmk'
 let g:tex_flavor = "latex"
 let g:vimtex_view_method='skim'
 let g:vimtex_view_skim_activate=1
 "let g:vimtex_view_skim_reading_bar=1
 "let g:vimtex_view_skim_sync = 1
 "
+
 let g:vimtex_quickfix_mode=0
 "set conceallevel=2
 
