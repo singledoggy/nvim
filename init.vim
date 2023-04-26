@@ -13,6 +13,7 @@ set tabstop=4
 set shiftwidth=4
 set history=1000
 set clipboard=unnamedplus
+nnoremap c "cc
 " Pathogen load
 filetype off
 filetype plugin on
@@ -85,6 +86,8 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'kenn7/vim-arsync'
+Plug 'prabirshrestha/async.vim' " vim-arsync depedencies
 call plug#end()
 nmap ,v :NERDTreeFind<cr>
 nmap ,g :NERDTreeToggle<cr>
@@ -250,6 +253,21 @@ let g:vimtex_fold_types = {
 	\ },
 \ }
 
+
+let g:vimtex_compiler_latexmk = {
+	\ 'build_dir' : './temp',
+	\ 'callback' : 1,
+	\ 'continuous' : 1,
+	\ 'executable' : 'latexmk',
+	\ 'hooks' : [],
+	\ 'options' : [
+	\   '-verbose',
+	\   '-file-line-error',
+	\   '-synctex=1',
+	\   '-interaction=nonstopmode',
+	\ ],
+	\}
+
 "vimtex
 " Open multiple lines (insert empty lines) before or after current line,
 " and position cursor in the new space, with at least one blank line
@@ -299,3 +317,7 @@ noremap go :<C-U>Leaderf! rg --recall<CR>
 """""""""""""
 "  leaderf  "
 """""""""""""
+
+""""""""""""
+"  arsync  "
+""""""""""""
