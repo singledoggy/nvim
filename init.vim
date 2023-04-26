@@ -30,9 +30,9 @@ noremap <silent> gk k
 
 
 let g:python3_host_prog='/Users/sam/opt/anaconda3/envs/metro/bin/python3'
-""""""""""""""""""""""
+"""""""""""""""""""""""
     "Quickly Run
-    """"""""""""""""""""""
+""""""""""""""""""""""
     map <F5> :call CompileRunGcc()<CR>
     func! CompileRunGcc()
         exec "w"
@@ -256,7 +256,7 @@ let g:vimtex_fold_types = {
 
 
 let g:vimtex_compiler_latexmk = {
-	\ 'build_dir' : './temp',
+	\ 'build_dir' : './latex.out',
 	\ 'callback' : 1,
 	\ 'continuous' : 1,
 	\ 'executable' : 'latexmk',
@@ -269,10 +269,6 @@ let g:vimtex_compiler_latexmk = {
 	\ ],
 	\}
 
-"vimtex
-" Open multiple lines (insert empty lines) before or after current line,
-" and position cursor in the new space, with at least one blank line
-" before and after the cursor.
 function! OpenLines(nrlines, dir)
   let nrlines = a:nrlines < 3 ? 3 : a:nrlines
   let start = line('.') + a:dir
@@ -319,6 +315,26 @@ noremap go :<C-U>Leaderf! rg --recall<CR>
 "  leaderf  "
 """""""""""""
 
-""""""""""""
-"  arsync  "
-""""""""""""
+
+"=Format JSON==
+function! FormatJSON()
+  %!python -c 'import sys,json; json.dump(json.load(sys.stdin), sys.stdout, ensure_ascii=False, indent=4)' %
+endfunction
+
+command FormatJSON :call FormatJSON()
+
+"=Format JSON==
+
+"==copilot==
+let g:copilot_filetypes = {
+    \ 'gitcommit': v:true,
+    \ 'tex': v:false
+    \ }
+autocmd BufReadPre *
+	 \ let f=getfsize(expand("<afile>"))
+     \ | if f > 100000 || f == -2
+     \ | let b:copilot_enabled = v:false
+	 \ | endif
+
+
+"==copilot==
