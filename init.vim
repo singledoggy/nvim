@@ -63,6 +63,7 @@ cnoremap vv <esc>
 
 call plug#begin('/usr/local/Cellar/neovim/0.4.4/share/nvim/plugged')
 Plug 'godlygeek/tabular' "Vim-markdown depend on this
+Plug 'github/copilot.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tyru/open-browser.vim' 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
