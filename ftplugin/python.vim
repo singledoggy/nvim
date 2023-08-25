@@ -5,17 +5,12 @@ let g:pymode_lint_ignore = ["E501","E402","W0611","W0404"]
 let g:pymode_lint_on_write = 1
 let g:pymode_rope = 1
 let g:pymode_run = 0
+
 let g:pymode_rope_goto_definition_bind = '<C-c>g'
-let g:pymode_rope_goto_definition_cmd = 'vnew'
+let g:pymode_rope_goto_definition_cmd = 'new'
 let g:pymode_rope_show_doc_bind = '<C-c>d'
 
-function! Pyclean()
-	echo "Clean python import"
-	silent exec '!isort  %:p'
-	silent exec '!autoflake --remove-all-unused-imports  -i %:p'
-endfunc
 
-command! Pyclean call Pyclean()
 nmap <leader>p :PymodeLintAuto<cr>
 
 """""""""""""
@@ -37,7 +32,8 @@ nnoremap <Leader>s :SlimeSend1 ipython --matplotlib<CR>
 nnoremap <Leader>r :IPythonCellRunTime<CR>
 
 " map <Leader>C to execute the current cell and jump to the next cell
-nnoremap <Leader>c :IPythonCellExecuteCellJump<CR>
+" nnoremap <Leader>c :IPythonCellExecuteCellJump<CR>
+nnoremap <Leader>c :IPythonCellExecuteCellVerboseJump<CR>
 
 " map <Leader>Q to restart ipython
 

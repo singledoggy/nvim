@@ -29,7 +29,7 @@ noremap <silent> gj j
 noremap <silent> gk k
 
 
-let g:python3_host_prog='/Users/sam/opt/anaconda3/envs/metro/bin/python3'
+let g:python3_host_prog='/Users/sam/opt/anaconda3/envs/EnvML/bin/python3'
 """""""""""""""""""""""
     "Quickly Run
 """"""""""""""""""""""
@@ -77,6 +77,7 @@ Plug '907th/vim-auto-save'
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-bufword'
+Plug 'subnut/nvim-ghost.nvim'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 Plug 'ncm2/ncm2-ultisnips'
@@ -90,6 +91,7 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'kenn7/vim-arsync'
 Plug 'prabirshrestha/async.vim' " vim-arsync depedencies
 call plug#end()
+
 nmap ,v :NERDTreeFind<cr>
 nmap ,g :NERDTreeToggle<cr>
 "------------------------------------------------------------------------------
@@ -256,8 +258,8 @@ let g:vimtex_fold_types = {
 
 
 let g:vimtex_compiler_latexmk = {
-	\ 'build_dir' : './latex.out',
-	\ 'callback' : 1,
+	\ 'aux_dir' : './latex_out',
+	\ 'callback' : 0,
 	\ 'continuous' : 1,
 	\ 'executable' : 'latexmk',
 	\ 'hooks' : [],
@@ -268,6 +270,11 @@ let g:vimtex_compiler_latexmk = {
 	\   '-interaction=nonstopmode',
 	\ ],
 	\}
+
+let g:vimtex_quickfix_ignore_filters = [
+      \ 'fontspec Warning',
+      \ 'Overfull',
+      \]
 
 function! OpenLines(nrlines, dir)
   let nrlines = a:nrlines < 3 ? 3 : a:nrlines
@@ -338,3 +345,12 @@ autocmd BufReadPre *
 
 
 "==copilot==
+
+"==nvim-ghost==
+augroup nvim_ghost_user_autocommands
+  au User www.reddit.com,www.stackoverflow.com setfiletype markdown
+  au User www.reddit.com,www.github.com setfiletype markdown
+  au User *github.com setfiletype markdown
+  au User localhost:8888 setfiletype python
+augroup END
+"==nvim-ghost==
