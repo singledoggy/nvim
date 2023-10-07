@@ -13,7 +13,7 @@ let g:pymode_rope_goto_definition_cmd = 'new'
 let g:pymode_rope_show_doc_bind = '<C-c>d'
 
 
-nmap <leader>p :PymodeLintAuto<cr>
+nmap <leader>p :Black<cr>
 
 """""""""""""
 "  ipython  "
@@ -30,24 +30,21 @@ let g:slime_dont_ask_default = 1
 " map <Leader>s to start IPython
 nnoremap <Leader>s :SlimeSend1 ipython --matplotlib<CR>
 
-" map <Leader>r to run script and time the execution
-nnoremap <Leader>r :IPythonCellRunTime<CR>
-
-" map <Leader>C to execute the current cell and jump to the next cell
-" nnoremap <Leader>c :IPythonCellExecuteCellJump<CR>
-nnoremap <Leader>c :IPythonCellExecuteCellVerboseJump<CR>
+nnoremap <Leader>r <Plug>JupyterExecute
+nmap <leader>c <Plug>JupyterExecute:IPythonCellInsertBelow<CR>o
+"nnoremap <Leader>c :IPythonCellExecuteCellVerboseJump<CR>
 
 " map <Leader>Q to restart ipython
 
 
 let g:ipython_cell_shell_prev_cmd = '<C-p>'
 
-nnoremap <Leader>Q :IPythonCellRestart<CR>
+"nnoremap <Leader>Q :IPythonCellRestart<CR>
 " map [c and ]c to jump to the previous and next cell header
 nnoremap [c :IPythonCellPrevCell<CR>
 nnoremap ]c :IPythonCellNextCell<CR>
 "nmap <leader>N :IPythonCellInsertAbove<CR>a
 "nmap <leader>n :IPythonCellInsertBelow<CR>a
-"
+"jupyter nbextension     enable jupyter_ascending --sys-prefix --py
 noremap <leader>o  :IPythonCellInsertBelow<CR>o
 let g:ipython_cell_tag = ['# %%', '#%%', '# <codecell>','# In[']

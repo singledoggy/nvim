@@ -67,9 +67,10 @@ Plug 'github/copilot.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tyru/open-browser.vim' 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'mzlogin/vim-markdown-toc'
+"Plug 'mzlogin/vim-markdown-toc'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'untitled-ai/jupyter_ascending.vim'
 Plug 'jpalardy/vim-slime'
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 Plug 'lervag/vimtex'
@@ -82,14 +83,15 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-Plug 'kenn7/vim-arsync'
-Plug 'prabirshrestha/async.vim' " vim-arsync depedencies
+"Plug 'kenn7/vim-arsync'
+"Plug 'prabirshrestha/async.vim' " vim-arsync depedencies
 call plug#end()
 
 nmap ,v :NERDTreeFind<cr>
@@ -111,9 +113,11 @@ set background=dark
 
 
 "=========auto save=====
-let g:auto_save = 1 
-" enable AutoSave on Vim startup
-
+let g:auto_save = 1
+"augroup ft_filetypes
+"  au!
+"  au FileType markdown,tex let b:auto_save = 1
+"augroup END
 
 " =====enable ncm2 for all buffers=====
 autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -193,6 +197,19 @@ let g:mkdp_markdown_css = ''
 let g:mkdp_highlight_css = ''
 let g:mkdp_port = ''
 let g:mkdp_page_title = '「${name}」'
+let g:vim_markdown_folding_disabled = 1
+"nmap gen :GenTocGFM
+"nmap dgen :RemoveToc
+"function RToc()
+"    exe "/-toc .* -->"
+"    let lstart=line('.')
+"    exe "/-toc -->"
+"    let lnum=line('.')
+"    execute lstart.",".lnum."g/           /d"
+"endfunction
+"markdown preview config==
+
+
 """""""""""""""""
 "  easy motion  "
 """""""""""""""""
@@ -206,18 +223,6 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-
-"markdown preview config==
-let g:vim_markdown_folding_disabled = 1
-nmap gen :GenTocGFM
-nmap dgen :RemoveToc
-function RToc()
-    exe "/-toc .* -->"
-    let lstart=line('.')
-    exe "/-toc -->"
-    let lnum=line('.')
-    execute lstart.",".lnum."g/           /d"
-endfunction
 
 "====snips config===
 
