@@ -78,7 +78,7 @@ Plug '907th/vim-auto-save'
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-bufword'
-Plug 'subnut/nvim-ghost.nvim'
+"Plug 'subnut/nvim-ghost.nvim'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 Plug 'ncm2/ncm2-ultisnips'
@@ -351,11 +351,11 @@ autocmd BufReadPre *
 
 "==copilot==
 
-"==nvim-ghost==
-augroup nvim_ghost_user_autocommands
-  au User www.reddit.com,www.stackoverflow.com setfiletype markdown
-  au User www.reddit.com,www.github.com setfiletype markdown
-  au User *github.com setfiletype markdown
-  au User localhost:8888 setfiletype python
-augroup END
-"==nvim-ghost==
+""==nvim-ghost==
+"augroup nvim_ghost_user_autocommands
+"  au User www.reddit.com,www.stackoverflow.com setfiletype markdown
+"  au User www.reddit.com,www.github.com setfiletype markdown
+"  au User *github.com setfiletype markdown
+"  au User localhost:8888 setfiletype python
+"augroup END
+""==nvim-ghost==
