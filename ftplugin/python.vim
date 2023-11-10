@@ -48,3 +48,5 @@ nnoremap ]c :IPythonCellNextCell<CR>
 "jupyter nbextension     enable jupyter_ascending --sys-prefix --py
 noremap <leader>o  :IPythonCellInsertBelow<CR>o
 let g:ipython_cell_tag = ['# %%', '#%%', '# <codecell>','# In[']
+
+nnoremap <leader>d ?^# %%<CR>V/^# %%<CR>k$d
