@@ -3,7 +3,7 @@ set shiftwidth=4
 """"""""""""
 "  pymode  "
 """"""""""""
-let g:pymode_lint_ignore = ["E501","E402","W0611","W0404"]
+let g:pymode_lint_ignore = ["E501","E402","W0611","W0404","E203"]
 let g:pymode_lint_on_write = 1
 let g:pymode_rope = 1
 let g:pymode_run = 0
@@ -12,7 +12,7 @@ let g:pymode_rope_goto_definition_bind = '<C-c>g'
 let g:pymode_rope_goto_definition_cmd = 'new'
 let g:pymode_rope_show_doc_bind = '<C-c>d'
 
-
+let g:black_linelength=79
 nmap <leader>p :Black<cr>
 
 """""""""""""
