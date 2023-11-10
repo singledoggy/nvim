@@ -61,13 +61,13 @@ let g:python3_host_prog='/Users/sam/opt/anaconda3/envs/EnvML/bin/python3'
 inoremap vv <esc>
 cnoremap vv <esc>
 
-call plug#begin('/usr/local/Cellar/neovim/0.4.4/share/nvim/plugged')
-Plug 'godlygeek/tabular' "Vim-markdown depend on this
+call plug#begin('/usr/local/Cellar/neovim/0.9.2/share/nvim/plugged')
 Plug 'github/copilot.vim'
+Plug 'kshenoy/vim-signature'
+Plug 'godlygeek/tabular' "Vim-markdown depend on this
 Plug 'plasticboy/vim-markdown'
 Plug 'tyru/open-browser.vim' 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-"Plug 'mzlogin/vim-markdown-toc'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'untitled-ai/jupyter_ascending.vim'
@@ -78,24 +78,24 @@ Plug '907th/vim-auto-save'
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-bufword'
-"Plug 'subnut/nvim-ghost.nvim'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'psf/black', { 'branch': 'stable' }
-Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
-Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+"Plug 'mzlogin/vim-markdown-toc'
+"Plug 'subnut/nvim-ghost.nvim'
+"Plug 'preservim/nerdtree'
 "Plug 'kenn7/vim-arsync'
 "Plug 'prabirshrestha/async.vim' " vim-arsync depedencies
 call plug#end()
 
-nmap ,v :NERDTreeFind<cr>
-nmap ,g :NERDTreeToggle<cr>
+"nmap ,v :NERDTreeFind<cr>
+"nmap ,g :NERDTreeToggle<cr>
 "------------------------------------------------------------------------------
 " slime configuration 
 "------------------------------------------------------------------------------
