@@ -71,6 +71,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'untitled-ai/jupyter_ascending.vim'
+Plug 'sindrets/diffview.nvim'
 Plug 'jpalardy/vim-slime'
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 Plug 'lervag/vimtex'
