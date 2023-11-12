@@ -61,9 +61,8 @@ let g:python3_host_prog='/Users/sam/opt/anaconda3/envs/EnvML/bin/python3'
 inoremap vv <esc>
 cnoremap vv <esc>
 
-call plug#begin('/usr/local/Cellar/neovim/0.9.2/share/nvim/plugged')
+call plug#begin()
 Plug 'github/copilot.vim'
-Plug 'kshenoy/vim-signature'
 Plug 'godlygeek/tabular' "Vim-markdown depend on this
 Plug 'plasticboy/vim-markdown'
 Plug 'tyru/open-browser.vim' 
@@ -94,6 +93,7 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 "Plug 'kenn7/vim-arsync'
 "Plug 'prabirshrestha/async.vim' " vim-arsync depedencies
 call plug#end()
+
 
 "nmap ,v :NERDTreeFind<cr>
 "nmap ,g :NERDTreeToggle<cr>
@@ -360,3 +360,7 @@ autocmd BufReadPre *
 "  au User localhost:8888 setfiletype python
 "augroup END
 ""==nvim-ghost==
+
+lua<<EOF
+
+EOF
