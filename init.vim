@@ -85,6 +85,7 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
+Plug 'tomasky/bookmarks.nvim',
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 "Plug 'mzlogin/vim-markdown-toc'
@@ -360,7 +361,4 @@ autocmd BufReadPre *
 "  au User localhost:8888 setfiletype python
 "augroup END
 ""==nvim-ghost==
-
-lua<<EOF
-
-EOF
+lua require('basic')
