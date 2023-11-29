@@ -88,6 +88,7 @@ Plug 'tpope/vim-surround'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 "Plug 'mzlogin/vim-markdown-toc'
 "Plug 'subnut/nvim-ghost.nvim'
 "Plug 'preservim/nerdtree'
@@ -350,6 +351,8 @@ autocmd BufReadPre *
      \ | let b:copilot_enabled = v:false
 	 \ | endif
 
+imap <silent><script><expr> <M-Tab> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
 "==copilot==
 
@@ -361,3 +364,5 @@ autocmd BufReadPre *
 "  au User localhost:8888 setfiletype python
 "augroup END
 ""==nvim-ghost==
+let g:shfmt_extra_args = '-i 2'
+let g:shfmt_fmt_on_save = 1
